@@ -1,0 +1,44 @@
+@url=http://localhost:3000
+@tareaId = 1
+### @name crearTarea
+POST {{url}}/tareas
+Content-Type: application/json
+
+{
+  "nombre": "Comprar huevos" ,
+  "estado": false
+}
+
+### Listar todas las tareas
+GET {{url}}/tareas
+
+### Consultar tareas pendientes
+GET {{url}}/tareas?estado=pendientes
+
+### Consultar tareas completadas
+GET {{url}}/tareas?estado=completadas
+
+### Consultar la tarea recién creada
+GET {{url}}/tareas/{{tareaId}}
+
+### Marcar la tarea como completada
+PATCH {{url}}/tareas/{{tareaId}}
+Content-Type: application/json
+
+{
+  "estado": true
+}
+
+### Eliminar la tarea creada
+DELETE {{url}}/tareas/{{tareaId}}
+
+### Ejemplo de filtro inválido. El estado "archivado" no existe(debe responder 400)
+GET {{url}}/tareas?estado=archivadas
+
+### Ejemplo de estado inválido. el valor "true" es un conjunto de caracteres no un booleano (debe responder 400)
+PATCH {{url}}/tareas/1
+Content-Type: application/json
+
+{
+  "estado": "true"
+}

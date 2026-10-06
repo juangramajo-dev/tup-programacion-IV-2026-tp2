@@ -1,0 +1,18 @@
+{
+  "name": "api-tareas-mysql",
+  "version": "1.0.0",
+  "description": "API REST de tareas con ExpressJS y MySQL",
+  "license": "ISC",
+  "author": "Juan Gramajo",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --env-file=.env --watch index.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "express-validator": "^7.2.1",
+    "mysql2": "^3.14.5"
+  }
+}
